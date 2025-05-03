@@ -927,6 +927,14 @@
           button.closest(".overlay").classList.add("hidden");
         });
       });
+
+      document.querySelectorAll('.overlay').forEach(overlay => {
+        overlay.addEventListener('click', (e) => {
+          if (e.target === overlay || !e.target.closest('.overlay-content')) {
+            overlay.classList.add('hidden');
+          }
+        });
+      });
     </script>
   </body>
 </html>
