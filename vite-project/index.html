@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohamed Portfolio</title>
+  </head>
+  <body>
+    <div id="app">
+      <main class="container">
+        <!-- 🎲 Sección Render 3D -->
+        <section class="render-section">
+          <div id="experience">
+            <canvas id="experience-canvas"></canvas>
+          </div>
+        </section>
+        <!-- 🔤 Sección Texto -->
+        <section class="text-section">
+          <!-- 🌗 Toggle Modo Oscuro - Claro -->
+          <div class="toggle-switch">
+            <input type="checkbox" id="theme-toggle" class="theme-toggle" />
+            <label for="theme-toggle" class="toggle-label">
+              <svg
+                id="sun-icon"
+                class="w-6 h-6 text-gray-800 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M13 3a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0V3ZM6.343 4.929A1 1 0 0 0 4.93 6.343l1.414 1.414a1 1 0 0 0 1.414-1.414L6.343 4.929Zm12.728 1.414a1 1 0 0 0-1.414-1.414l-1.414 1.414a1 1 0 0 0 1.414 1.414l1.414-1.414ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm-9 4a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2H3Zm16 0a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2ZM7.757 17.657a1 1 0 1 0-1.414-1.414l-1.414 1.414a1 1 0 1 0 1.414 1.414l1.414-1.414Zm9.9-1.414a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414l-1.414-1.414ZM13 19a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0v-2Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <svg
+                id="moon-icon"
+                class="w-6 h-6 text-gray-800 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M11.675 2.015a.998.998 0 0 0-.403.011C6.09 2.4 2 6.722 2 12c0 5.523 4.477 10 10 10 4.356 0 8.058-2.784 9.43-6.667a1 1 0 0 0-1.02-1.33c-.08.006-.105.005-.127.005h-.001l-.028-.002A5.227 5.227 0 0 0 20 14a8 8 0 0 1-8-8c0-.952.121-1.752.404-2.558a.996.996 0 0 0 .096-.428V3a1 1 0 0 0-.825-.985Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </label>
+          </div>
+          <!-- 🔍 Menú principal -->
+          <div class="scroll-container">
+            <h1>MOHAMED LARGO YAGOUBI</h1>
+            <h2 id="description">Estudiante de Ingeniería Informática y ADE</h2>
+            <p>
+              ¡Bienvenido a mi portfolio 3D! 🎉 Explora esta página
+              interactuando con el modelo 3D o mediante el menú inferior.
+              ¡Diviértete explorando! 🚀
+            </p>
+            <hr class="separator" />
+            <div class="index-header">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 12L19 19 15 19 15 9 17 9 17 12zM9 9L9 19 5 19 5 12 7 12 7 9z"
+                  opacity=".3"
+                ></path>
+                <path
+                  d="M6 3H10V5H6zM14 3H18V5H14zM17 9v1 2h2v7h-4v-5-2-2V9H17M9 9v1 2 2 5H5v-7h2v-2V9H9M18 7h-4c-.552 0-1 .448-1 1v2h-2V8c0-.552-.448-1-1-1H6C5.448 7 5 7.448 5 8v2c-1.105 0-2 .895-2 2v8c0 .552.448 1 1 1h6c.552 0 1-.448 1-1v-6h2v6c0 .552.448 1 1 1h6c.552 0 1-.448 1-1v-8c0-1.105-.895-2-2-2V8C19 7.448 18.552 7 18 7L18 7z"
+                ></path>
+              </svg>
+              <h2>Índice</h2>
+            </div>
+            <div class="button-grid">
+              <button class="button-56" role="button" id="about">
+                🖼️ Sobre mí
+              </button>
+              <button class="button-56" role="button" id="skills">
+                📚 Formación y aptitudes
+              </button>
+              <button class="button-56" role="button" id="academic">
+                🪴Experiencia profesional
+              </button>
+              <button class="button-56" role="button" id="projects">
+                💻 Proyectos
+              </button>
+              <button class="button-56 center-button" role="button" id="contact">
+                ✉️ Contacto
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    
+    <!--  🖼️ Sobre mí -->
+    
+    <div id="about-overlay" class="overlay hidden">
+      <div class="overlay-content">
+        <button id="close-overlay" class="close-btn">✖ Cerrar</button>
+        <div class="index-header">
+          <img
+            width="30"
+            height="30"
+            src="https://img.icons8.com/material-two-tone/500/user-male-circle.png"
+            alt="user-male-circle"
+          />
+          <h2>Sobre mí</h2>
+        </div>
+        <div class="about-content-shape">
+          <div class="image-column">
+            <img
+              src="public/img/mohamed.jpg"
+              alt="Imagen Sobre Mí"
+              class="about-float-img"
+            />
+            <div class="personal-info">
+              <p><strong>Fecha de nacimiento:</strong> 07/03/2002</p>
+              <p><strong>Lugar de nacimiento:</strong> Vielha, España</p>
+              <p><strong>Residencia actual:</strong> Vielha | Lleida</p>
+            </div>
+          </div>
+          <p class="bio-text">
+            ¡Hola! Soy Mohamed 👋, un apasionado por la tecnología 💻 y las ciencias 🧠, nacido y criado en el hermoso Valle de Arán del Pirineo leridano 🏔. Desde muy pequeño, me vi fascinado por las ciencias: las matemáticas, la física, la tecnología y la economía se convirtieron para mí en una constante fuente de inspiración y descubrimiento. ⚙️
+          </p>
+          <div class="polaroid-wrapper">
+            <div class="polaroid">
+              <img src="public/img/peque.jpg" alt="Pequeño" />
+            </div>
+          </div>
+          <p class="bio-text">
+            A lo largo de mi vida, he sabido equilibrar mi pasión por las ciencias 🔬 con mi vena artística 🎨. Recuerdo con especial cariño haber ganado 🏆, de pequeño, el primer premio de poesía en occitano aranés en los XXVIII Premios Literarios Mossen Condò Sambeat. 🪶
+          </p>
+          <div class="polaroid-wrapper">
+            <div class="polaroid">
+              <img src="public/img/hermanitos.jpg" alt="Hermanos" />
+            </div>
+          </div>
+          <p class="bio-text">
+            A los 15 años, di mis primeros pasos en el mundo de la programación 👨‍💻, autodidacta en HTML y CSS cree mis primeras páginas web simples, lo que despertó en mí una pasión por el código. Mi primer lenguaje fue Processing ⌨️, y disfruté muchísimo realizando proyectos electrónicos con Arduino  en la asignatura de tecnología. 🤖
+          </p>
+          <div class="polaroid-wrapper">
+            <div class="polaroid">
+              <img src="public/img/primos.jpg" alt="Primos" />
+            </div>
+          </div>
+          <p class="bio-text">
+            Durante el instituto, mi curiosidad se expandió hacia la filosofía 🤔, inspirándome en pensadores como John Stuart Mill, Kant y Schopenhauer, y también me interesé por la ciencia económica 💰. Tras realizar un doble bachillerato francés y español, hoy me encuentro finalizando mis estudios universitarios 🧑🏻‍🎓 en el doble grado de Ingeniería Informática y ADE en Lleida, integrando así mi pasión por la tecnología y la gestión empresarial. 💼
+          </p>
+          <div class="polaroid-wrapper">
+            <div class="polaroid">
+              <img src="public/img/tomate.jpg" alt="Tomate" />
+            </div>
+          </div>
+          <p class="bio-text">
+            ¡Gracias por acompañarme en este viaje por mis pasiones y experiencias! 😊
+          </p>
+          <div class="polaroid-wrapper">
+            <div class="polaroid">
+              <img src="public/img/barna.jpg" alt="Barna" />
+            </div>
+          </div>         
+        </div>
+      </div>
+    </div>
+    
+    <!--  📚 Formación y aptitudes -->
+
+    <div id="skills-overlay" class="overlay hidden">
+      <div class="overlay-content">
+        <button class="close-btn">✖ Cerrar</button>
+        <div class="index-header">
+          <img
+            width="30"
+            height="30"
+            src="https://img.icons8.com/material-two-tone/500/diploma--v2.png"
+            alt="diploma--v2"
+          />
+          <h2>Formación</h2>
+        </div>
+        <div class="info-box">
+          <div class="info-column">
+            <div class="info-date">2020 - ACTUALIDAD</div>
+          </div>
+          <div class="info-column">
+            <p class="info-title">DOBLE GRADO EN INGENIERÍA INFORMÁTICA Y ADMINISTRACIÓN Y DIRECCIÓN DE EMPRESAS (GEIADE)</p>
+            <p class="info-place">📍 Universitat de Lleida (UdL) | Lleida</p>
+            <p class="info-description">
+              Combino conocimientos en programación, sistemas informáticos y TIC, complementados con fundamentos de contabilidad, finanzas, marketing y administración de proyectos. Esto ha reforzado mi pensamiento analítico, creatividad, capacidad para resolver problemas y visión estratégica. 
+            </p>
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="info-column">
+            <div class="info-date">2018 - 2020</div>
+          </div>
+          <div class="info-column">
+            <p class="info-title">DOBLE BACHILLERATO FRANCÉS Y ESPAÑOL (BACHIBAC) </p>
+            <p class="info-place">📍 Institut d'Aran | Vielha</p>
+            <p class="info-description">
+              Durante este bachillerato bilingüe, obtuve el certificado B2 en francés y el premio TDR en la jornada Invesjove 2020, lo que me permitió potenciar mis habilidades en investigación, electrónica y programación.
+            </p>
+          </div>
+        </div>
+        <hr class="separator" />
+        <div class="index-header">
+          <img
+            width="30"
+            height="30"
+            src="https://img.icons8.com/material-two-tone/500/student-male.png"
+            alt="student-male"
+          />
+          <h2>Idiomas</h2>
+        </div>
+        <div class="languages-grid">
+      
+          <div class="language-card">
+            <img
+              src="https://img.icons8.com/color/48/spain.png"
+              alt="Español"
+              class="language-flag"
+            />
+            <h3 class="language-title">Español</h3>
+            <p class="language-level">Nativo</p>
+          </div>
+
+          <div class="language-card">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Flag_of_Occitania.svg/2560px-Flag_of_Occitania.svg.png"
+              alt="Aranés"
+              class="language-flag"
+            />
+            <h3 class="language-title">Occitan aranés</h3>
+            <p class="language-level">Nativo</p>
+          </div>
+
+          <div class="language-card">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Catalonia.svg"
+              alt="Catalán"
+              class="language-flag"
+            />
+            <h3 class="language-title">Català</h3>
+            <p class="language-level">Nativo</p>
+          </div>
+
+          <div class="language-card">
+            <img
+              src="https://img.icons8.com/color/48/france.png"
+              alt="Francés"
+              class="language-flag"
+            />
+            <h3 class="language-title">Français</h3>
+            <p class="language-level">B2 Intermedio</p>
+          </div>
+
+          <div class="language-card">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/2560px-Flag_of_the_United_Kingdom_%283-5%29.svg.png"
+              alt="Inglés"
+              class="language-flag"
+            />
+            <h3 class="language-title">English</h3>
+            <p class="language-level">Hablado y escrito</p>
+          </div>
+
+
+          <div class="language-card">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/330px-Flag_of_Morocco.svg.png"
+              alt="Árabe darija"
+              class="language-flag"
+            />
+            <h3 class="language-title">Árabe marroquí (Darija)</h3>
+            <p class="language-level">Hablado</p>
+          </div>
+
+
+        </div>
+        <hr class="separator" />
+        <div class="index-header">
+          <img
+            width="30"
+            height="30"
+            src="https://img.icons8.com/material-two-tone/500/visualization-skill.png"
+            alt="visualization-skill"
+          />
+          <h2>Hard Skills</h2>
+        </div>
+        <ul class="skills-list">
+          <li><strong>Lenguajes y paradigmas:</strong> Java (POO, pruebas unitarias, EDA, patrones GoF), C y Python (secuencial, complejidad y algorítmica).</li>
+          <li><strong>Web & UX/UI:</strong> Django, Three.js, HTML5, CSS3, JS, Tailwind, Sass, Figma y Adobe Xd.</li>
+          <li><strong>Control de versiones:</strong> Git y GitHub.</li>
+          <li><strong>Sistemas y redes:</strong> Unix/Linux, concurrencia, arquitectura Von Neumann; modelo OSI, sockets, GNS3 y Wireshark.</li>
+          <li><strong>Bases de datos relacionales:</strong> PostgreSQL.</li>
+          <li><strong>Matemáticas:</strong> discretas, financieras y álgebra avanzada.</li>
+          <li><strong>Electrónica analógica y digital:</strong> Arduino.</li>
+          <li><strong>Microeconomía & legislación:</strong> Marketing estratégico, contabilidad analítica y financiera; derecho mercantil, laboral y tributario.</li>
+        </ul>
+        <hr class="separator" />
+        <div class="index-header">
+          <img
+            width="30"
+            height="30"
+            src="https://img.icons8.com/material-two-tone/100/development-skill.png"
+            alt="development-skill"
+          />
+          <h2>Soft Skills</h2>
+        </div>
+        <ul class="skills-list">
+          <li>Trabajo en equipo.</li>
+          <li>Comunicación efectiva.</li>
+          <li>Gestión del tiempo.</li>
+          <li>Resolución de problemas.</li>
+          <li>Adaptabilidad.</li>
+          <li>Pensamiento crítico.</li>
+          <li>Resiliencia.</li>
+          <li>Creatividad.</li>
+          <li>Atención al cliente.</li>
+          <li>Habilidades interculturales.</li>
+          <li>Multilingüismo.</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!--  🪴Experiencia profesional -->
+
+    <div id="academic-overlay" class="overlay hidden">
+      <div class="overlay-content">
+        <button class="close-btn">✖ Cerrar</button>
+        <div class="index-header">
+          <img
+            width="30"
+            height="30"
+            src="https://img.icons8.com/material-two-tone/100/lawyer.png"
+            alt="lawyer"
+          />
+          <h2>Experiencia profesional</h2>
+        </div>
+
+        <div class="info-box">
+          <div class="info-column">
+            <div class="info-date">AGO 2019 - SEP 2024</div>
+          </div>
+          <div class="info-column">
+            <div class="experience-title">
+              <img
+                src="https://img.icons8.com/?size=100&id=8463&format=png&color=000000"
+                alt="waiter"
+                class="title-icon"
+              />
+              <h3>CAMARERO</h3>
+            </div>
+            <p class="company-name">FELDESPAT S.L (HOTEL VILAGARÓS ****)</p>
+            <div class="hours-badge">+300 días</div>
+            <p class="info-description">
+              Durante este periodo, perfeccioné mis habilidades en servicio, atención al cliente, organización de sala, trabajo en equipo y gestión de caja. Inicié como ayudante de camarero y, gracias a mi desempeño, fui ascendido a camarero, asumiendo mayores responsabilidades y fortaleciendo mi capacidad de liderazgo. 
+            </p>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <div class="info-column">
+            <div class="info-date">FEB 2023 - FEB 2024</div>
+          </div>
+          <div class="info-column">
+            <div class="experience-title">
+              <img
+                src="https://img.icons8.com/?size=100&id=58780&format=png&color=000000"
+                alt="audi"
+                class="title-icon"
+              />
+              <h3>AUXILIAR DE EVENTOS </h3>
+            </div>
+            <p class="company-name">UNIT ELEMENTS S.L (BAQUEIRA BERET)</p>
+            <div class="hours-badge">2 días</div>
+            <p class="info-description">
+              Participé activamente en la Audi Quattro Cup celebrada en Baqueira Beret, desempeñando tareas en el stand de simulación de conducción y en la yincana. Además, brindé soporte al equipo logístico y ofrecí atención personalizada a los asistentes, contribuyendo al éxito del evento.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="info-box">
+          <div class="info-column">
+            <div class="info-date">JUL 2019 - AGO 2019</div>
+          </div>
+          <div class="info-column">
+            <div class="experience-title">
+              <img
+                src="https://img.icons8.com/?size=100&id=8967&format=png&color=000000"
+                alt="kitchen"
+                class="title-icon"
+              />
+              <h3>AYUDANTE DE COCINA</h3>
+            </div>
+            <p class="company-name">HOTEL VIELHA S.L (VIELHA)</p>
+            <div class="hours-badge">3 días</div>
+            <p class="info-description">
+              Colaboré en la preparación de platos y en la limpieza y organización de los utensilios durante el servicio, adquiriendo conocimientos en el uso de utensilios de cocina, control de materias primas y técnicas básicas de mise en place.  
+            </p>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <div class="info-column">
+            <div class="info-date">JUL 2018 - SEP 2018</div>
+          </div>
+          <div class="info-column">
+            <div class="experience-title">
+              <img
+                src="https://img.icons8.com/?size=100&id=12619&format=png&color=000000"
+                alt="waiter-helper"
+                class="title-icon"
+              />
+              <h3>AYUDANTE DE CAMARERO </h3>
+            </div>
+            <p class="company-name">URATU S.L (ARTIES)</p>
+            <div class="hours-badge">37 días</div>
+            <p class="info-description">
+              Inicié mi experiencia laboral como friegaplatos y realicé diversas tareas en cocina. Gracias a mi proactividad, ascendí a ayudante de camarero, prestando apoyo en barra y reforzando mis habilidades en la atención al cliente. 
+            </p>
+          </div>
+        </div>
+
+        <hr class="separator" />
+        <div class="index-header">
+          <img
+            width="30"
+            height="30"
+            src="https://img.icons8.com/material-two-tone/100/working-with-papers.png"
+            alt="working-with-papers"
+          />
+          <h2>Prácticas</h2>
+        </div>
+        <div class="notice-box">
+          <img
+            src="https://img.icons8.com/fluency/48/hourglass-sand-top.png"
+            alt="Búsqueda"
+            class="notice-icon"
+          />
+          <div class="notice-content">
+            <h3 class="notice-title">En búsqueda de oportunidades</h3>
+            <p class="notice-text">
+              Actualmente estoy buscando prácticas curriculares para realizar
+              durante este verano en el ámbito de proyectos informáticos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  💻 Proyectos -->
+
+    <div id="projects-overlay" class="overlay hidden">
+      <div class="overlay-content">
+        <button class="close-btn">✖ Cerrar</button>
+        <div class="index-header">
+          <img
+            width="30"
+            height="30"
+            src="https://img.icons8.com/material-two-tone/500/group-of-projects.png"
+            alt="group-of-projects"
+          />
+          <h2>Proyectos</h2>
+        </div>
+
+
+        <div class="card">
+          <span class="card__title">Portfolio Web</span>
+          <p id="card__content">
+            En la carrera, tras realizar un trabajo sobre la usabilidad y accesibilidad web, descubrí que se podía innovar en la exploración de una página web utilizando elementos 3D,  me propuse que alguno de mis proyectos integraría las funcionalidades que ofrece el framework ThreeJS.
+          </p>
+          <div class="card-img"><img class="overlay-img" src="public/img/png/port.png" alt="Portfolio"></div>
+          <div class="tech-stack">
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000"
+                alt="HTML"
+              />
+              <span class="tech-tooltip">HTML</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://img.icons8.com/?size=100&id=YO3YqSaTOu5K&format=png&color=000000" alt="Vite" />
+              <span class="tech-tooltip">Vite</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000"
+                alt="Java-Script"
+              />
+              <span class="tech-tooltip">Java Script</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=78Fr72VCwbPq&format=png&color=000000"
+                alt="Sass"
+              />
+              <span class="tech-tooltip">Sass</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://canada1.discourse-cdn.com/flex035/uploads/threejs/optimized/2X/e/e4f86d2200d2d35c30f7b1494e96b9595ebc2751_2_1016x1024.png"
+                alt="ThreeJS"
+              />
+              <span class="tech-tooltip">ThreeJS</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=65231&format=png&color=000000"
+                alt="Blender"
+              />
+              <span class="tech-tooltip">Blender</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://pipedream.com/s.v0/app_XaLh2x/logo/orig"
+                alt="Vercel"
+              />
+              <span class="tech-tooltip">Vercel</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=9OGIyU8hrxW5&format=png&color=000000"
+                alt="Vscode"
+              />
+              <span class="tech-tooltip">Visual Studio Code</span>
+            </div>
+          </div>
+          <button class="card__button">Ver proyecto</button>
+        </div>
+
+        <div class="card">
+          <span class="card__title">Picoturbina Hidráulica (TDR)</span>
+          <p id="card__content">
+            Realicé la parte electrónica e informática de una picoturbina hidráulica que era capaz de producir energía y almacenarla en una batería, para posteriormente poder cargar un móvil con la energía almacenada. A su vez, mediante un módulo Arduino y una aplicación móvil hecha con Flutter, fuimos capaces de monitorizar el estado de carga de la batería y la velocidad de giro de la turbina en tiempo real, a través de una conexión Bluetooth.
+          </p>
+          <div class="card-img"><img class="overlay-img" src="public/img/png/pico.png" alt="Picoturbina"></div>
+          <div class="tech-stack">
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=7I3BjCqe9rjG&format=png&color=000000"
+                alt="Flutter"
+              />
+              <span class="tech-tooltip">Flutter</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://img.icons8.com/?size=100&id=7AFcZ2zirX6Y&format=png&color=000000" alt="Dart" />
+              <span class="tech-tooltip">Dart</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=13444&format=png&color=000000"
+                alt="Arduino"
+              />
+              <span class="tech-tooltip">Arduino</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=EgOU93v1DHjU&format=png&color=000000"
+                alt="Android-Studio"
+              />
+              <span class="tech-tooltip">Android Studio</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=4VVL78edhbW9&format=png&color=000000"
+                alt="Adobe-Xd"
+              />
+              <span class="tech-tooltip">Adobe Xd</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=63150&format=png&color=000000"
+                alt="Inkscape"
+              />
+              <span class="tech-tooltip">Inkscape</span>
+            </div>
+          </div>
+          <button class="card__button" href="https://territori.gencat.cat/web/.content/home/06_territori_i_urbanisme/IDAPA/30_documentacio/invesjove/invesjove-2020.pdf">Ver proyecto</button>
+        </div>
+
+        <div class="card">
+          <span class="card__title">Better Health</span>
+          <p id="card__content">
+            Proyecto en curso de la asignatura Modelos del Proceso e Ingeniería de Requisitos, en el que exploramos las necesidades de un cliente, descubrimos sus requerimientos y plasmamos las soluciones en una aplicación web Django utilizando metodologías ágiles.
+          </p>
+          <div class="card-img"><img class="overlay-img" src="public/img/png/bh.png" alt="Better Health"></div>
+          <div class="tech-stack">
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=22813&format=png&color=000000"
+                alt="Docker"
+              />
+              <span class="tech-tooltip">Docker</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://avatars.githubusercontent.com/u/48722593?s=200&v=4" alt="Poetry" />
+              <span class="tech-tooltip">Poetry</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://cdn.sanity.io/images/34ent8ly/production/ec37a3660704e1fa2b4246c9a01ab34e145194ad-824x824.png"
+                alt="Render"
+              />
+              <span class="tech-tooltip">Render</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000"
+                alt="CSS"
+              />
+              <span class="tech-tooltip">CSS</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=qV-JzWYl9dzP&format=png&color=000000"
+                alt="Django"
+              />
+              <span class="tech-tooltip">Django</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000"
+                alt="HTML"
+              />
+              <span class="tech-tooltip">HTML</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000"
+                alt="Python"
+              />
+              <span class="tech-tooltip">Python</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=117121&format=png&color=000000"
+                alt="PyCharm"
+              />
+              <span class="tech-tooltip">PyCharm</span>
+            </div>
+          </div>
+          <button class="card__button" href="https://github.com/mpp44/BetterHealthProject">Ver proyecto</button>
+        </div>
+
+        <div class="card">
+          <span class="card__title">Soccer Site</span>
+          <p id="card__content">
+            Primer CRUD realizado para la asignatura de Proyecto Web, se realizó una simple aplicación Django que permite crear, editar y eliminar ligas, equipos y jugadores de fútbol. 
+          </p>
+          <div class="card-img"><img class="overlay-img" src="public/img/png/wp.png" alt="Coders League"></div>
+          <div class="tech-stack">
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=22813&format=png&color=000000"
+                alt="Docker"
+              />
+              <span class="tech-tooltip">Docker</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://avatars.githubusercontent.com/u/48722593?s=200&v=4" alt="Poetry" />
+              <span class="tech-tooltip">Poetry</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://fly.io/static/images/brand/brandmark-dark.svg"
+                alt="Fly"
+              />
+              <span class="tech-tooltip">Fly</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=4PiNHtUJVbLs&format=png&color=000000"
+                alt="Tailwind"
+              />
+              <span class="tech-tooltip">Tailwind</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=qV-JzWYl9dzP&format=png&color=000000"
+                alt="Django"
+              />
+              <span class="tech-tooltip">Django</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000"
+                alt="HTML"
+              />
+              <span class="tech-tooltip">HTML</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000"
+                alt="Python"
+              />
+              <span class="tech-tooltip">Python</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=117121&format=png&color=000000"
+                alt="PyCharm"
+              />
+              <span class="tech-tooltip">PyCharm</span>
+            </div>
+          </div>
+          <button class="card__button" href="https://github.com/MohamedLargoYagoubi/Web_Project/tree/main">Ver proyecto</button>
+        </div>
+
+
+        <div class="card">
+          <span class="card__title">Concurrencia en Java & C</span>
+          <p id="card__content">
+            Repositorio para consolidar los conocimientos obtenidos en la asignatura de Sistemas Concurrenctes y Paralelos, logrando así consolidar mis conocimientos sobre la creación y gestión de hilos en Java y pthreads en C.
+          </p>
+          <div class="card-img"><img class="overlay-img" src="public/img/png/jc.png" alt="Thread"></div>
+          <div class="tech-stack">
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=13679&format=png&color=000000"
+                alt="Java"
+              />
+              <span class="tech-tooltip">Java</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://img.icons8.com/?size=100&id=61466&format=png&color=000000" alt="IntelliJ-IDEA" />
+              <span class="tech-tooltip">IntelliJ IDEA</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=21812&format=png&color=000000"
+                alt="Markdown"
+              />
+              <span class="tech-tooltip">Markdown</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=12599&format=png&color=000000"
+                alt="Github"
+              />
+              <span class="tech-tooltip">Github</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=40670&format=png&color=000000"
+                alt="C"
+              />
+              <span class="tech-tooltip">C</span>
+            </div>
+            <div class="tech-item">
+              <img
+                src="https://img.icons8.com/?size=100&id=9OGIyU8hrxW5&format=png&color=000000"
+                alt="Vscode"
+              />
+              <span class="tech-tooltip">Visual Studio Code</span>
+            </div>
+          </div>
+          <button class="card__button" href="https://github.com/MohamedLargoYagoubi/Java-Concurrency_and_Parallelism">Ver proyecto</button>
+        </div>
+
+       
+      </div>
+    </div>
+
+    <!--  ✉️ Contacto -->
+
+    <div id="contact-overlay" class="overlay hidden">
+      <div class="overlay-content">
+        <button class="close-btn">✖ Cerrar</button>
+        <div class="index-header">
+          <img
+            width="30"
+            height="30"
+            src="https://img.icons8.com/material-two-tone/500/badge.png"
+            alt="badge"
+          />
+          <h2>Contacto</h2>
+        </div>
+
+        <div class="contact-card">
+          <img
+            src="public/img/mohamed.jpg"
+            alt="Foto de perfil"
+            class="contact-photo"
+          />
+          <div class="contact-info">
+            <h3 class="contact-name">Mohamed Largo Yagoubi</h3>
+            <div class="contact-links">
+              <a
+                href="https://www.linkedin.com/in/mohamed-largo-yagoubi-85a3b4216"
+                target="_blank"
+                class="brutalist-button linkedin"
+              >
+                <div class="button-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
+                    />
+                  </svg>
+                </div>
+                <div class="button-text">
+                  <span>Contactar vía</span>
+                  <span>LinkedIn</span>
+                </div>
+              </a>
+
+              <a
+                href="https://github.com/MohamedLargoYagoubi"
+                target="_blank"
+                class="brutalist-button github"
+              >
+                <div class="button-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.34-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V19c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"
+                    />
+                  </svg>
+                </div>
+                <div class="button-text">
+                  <span>Contactar vía</span>
+                  <span>GitHub</span>
+                </div>
+              </a>
+
+              <a
+                href="mailto:mohamedlarg@gmail.com"
+                class="brutalist-button email"
+              >
+                <div class="button-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                    />
+                  </svg>
+                </div>
+                <div class="button-text">
+                  <span>Contactar vía</span>
+                  <span>Email</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <hr class="separator" />
+        <div class="index-header">
+          <img
+            width="30"
+            height="30"
+            src="https://img.icons8.com/material-two-tone/500/parse-resume.png"
+            alt="parse-resume"
+          />
+          <h2>Currículum</h2>
+        </div>
+
+        <div class="cv-actions">
+          <a href="public/cv/MohamedLargoYagoubiCV.pdf" download class="cv-button">
+            <span class="button__text">Descargar CV</span>
+            <span class="button__icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 35 35"
+                class="svg"
+              >
+                <path
+                  d="M17.5,22.131a1.249,1.249,0,0,1-1.25-1.25V2.187a1.25,1.25,0,0,1,2.5,0V20.881A1.25,1.25,0,0,1,17.5,22.131Z"
+                ></path>
+                <path
+                  d="M17.5,22.693a3.189,3.189,0,0,1-2.262-.936L8.487,15.006a1.249,1.249,0,0,1,1.767-1.767l6.751,6.751a.7.7,0,0,0,.99,0l6.751-6.751a1.25,1.25,0,0,1,1.768,1.767l-6.752,6.751A3.191,3.191,0,0,1,17.5,22.693Z"
+                ></path>
+                <path
+                  d="M31.436,34.063H3.564A3.318,3.318,0,0,1,.25,30.749V22.011a1.25,1.25,0,0,1,2.5,0v8.738a.815.815,0,0,0,.814.814H31.436a.815.815,0,0,0,.814-.814V22.011a1.25,1.25,0,1,1,2.5,0v8.738A3.318,3.318,0,0,1,31.436,34.063Z"
+                ></path>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!--  🪫 Pantalla de carga -->
+
+    <div id="loader-overlay">
+      <div class="spinner"></div>
+      <p class="loading-text">Cargando portfolio...</p>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+    <script>
+      document.getElementById("about").addEventListener("click", () => {
+        document.getElementById("about-overlay").classList.remove("hidden");
+      });
+
+      document.getElementById("skills").addEventListener("click", () => {
+        document.getElementById("skills-overlay").classList.remove("hidden");
+      });
+
+      document.getElementById("academic").addEventListener("click", () => {
+        document.getElementById("academic-overlay").classList.remove("hidden");
+      });
+
+      document.getElementById("projects").addEventListener("click", () => {
+        document.getElementById("projects-overlay").classList.remove("hidden");
+      });
+
+      document.getElementById("contact").addEventListener("click", () => {
+        document.getElementById("contact-overlay").classList.remove("hidden");
+      });
+
+      // Cerrar overlays
+      document.querySelectorAll(".close-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          button.closest(".overlay").classList.add("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>
